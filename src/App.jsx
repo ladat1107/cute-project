@@ -35,6 +35,7 @@ export default function App() {
         <img
           src="https://media.giphy.com/media/MDJ9IbxxvDUQM/giphy.gif"
           alt="cute"
+          title="Ảnh gif dễ thương"
           className="w-56 h-56 animate-fadeIn"
         />
       </div>
@@ -50,34 +51,43 @@ export default function App() {
         <img src={sticker} alt="cute" className="w-32 h-32 sm:w-48 sm:h-48" />
       </div>
 
-      {/* Text */}
-      <h1 className="absolute left-1/2 top-1/2 transform -translate-x-1/2 text-2xl font-bold text-center">
+      <h1 className="absolute left-1/2 top-1/2 transform -translate-x-1/2 
+  text-xl sm:text-2xl font-bold text-center px-2">
         Bạn có thích tui hông?
       </h1>
 
-      {/* Nút Có (cố định) */}
+      {/* Nút Có */}
       <button
         onClick={() => setTab("love")}
-        className="absolute left-1/2 bottom-1/3 transform -translate-x-[100%] px-6 py-2 bg-pink-500 text-white rounded-full text-lg shadow-md hover:scale-105 transition"
+        className="absolute left-1/2 transform -translate-x-[100%] 
+  px-4 py-1.5 sm:px-6 sm:py-2 
+  bg-pink-500 text-white rounded-full 
+  text-sm sm:text-lg shadow-md hover:scale-105 transition"
+        style={{
+          top: "calc(100% - 33.333%)", // Tương đương bottom-1/3
+        }}
       >
         Thích lắm luôn!
       </button>
 
-      {/* Nút Không (di chuyển riêng, không ảnh hưởng nút Có) */}
+      {/* Nút Không */}
       <button
         style={{
-          position: isMoved ? "absolute" : "absolute",
-          top: isMoved ? noPos.top : "calc(100% - 40%)",
+          position: "absolute",
+          top: isMoved ? noPos.top : "calc(100% - 33.333%)", // Cùng chiều cao với nút Có
           left: isMoved ? noPos.left : "calc(50% + 100px)",
           transform: isMoved ? "translate(-50%, -50%)" : "translate(-50%, 0)",
           transition: "all 0.3s ease",
         }}
         onMouseEnter={randomPosition}
         onClick={randomPosition}
-        className="px-6 py-2 bg-gray-400 text-white rounded-full text-lg shadow-md"
+        className="px-4 py-1.5 sm:px-6 sm:py-2 
+  bg-gray-400 text-white rounded-full 
+  text-sm sm:text-lg shadow-md whitespace-nowrap"
       >
         Hông thích
       </button>
+
     </div>
   );
 }
