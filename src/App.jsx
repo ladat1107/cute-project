@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import sticker from "./assets/cute.gif";
 import sticker2 from "./assets/cute2.gif";
+import video from "./assets/hun.mp4"
 import music from "./assets/music.mp3";
 
 export default function App() {
@@ -33,14 +34,17 @@ export default function App() {
     return (
       <div className="bg-pink-200 w-[100vw] min-h-screen flex flex-col items-center justify-center text-center p-4">
         <h1 className="text-4xl font-bold text-pink-700 mb-4">Tui biết mà 💖</h1>
-        <img
-          src={sticker2}
-          alt="cute"
-          title="Ảnh gif dễ thương"
-          className="w-56 h-56 animate-fadeIn"
+
+        <video
+          src={video}
+          className="w-64 h-64 animate-fadeIn rounded-lg"
+          autoPlay
+          loop
+          muted
+          playsInline
         />
       </div>
-    )
+    );
   }
 
   return (
